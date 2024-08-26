@@ -81,19 +81,18 @@ end
 if tcs.ChatVersion == Enum.ChatVersion.LegacyChatService then
 rps:WaitForChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(str,"All")
 elseif tcs.ChatVersion == Enum.ChatVersion.TextChatService then
-tcs:WaitForChild("TextChannels").RBXGeneral:SendAsync(str)
+tcs:WaitForChild("TextChannels")[tostring(tcs:FindFirstChildOfClass("ChatInputBarConfiguration").TargetTextChannel)]:SendAsync(str)
 end
 
 end
-
 
 
 ImageButton.MouseButton1Down:Connect(function()
 sendbypassedchatmessage(TextBox.Text)
 end)
 
-TextBox.InputEnded:Connect(function(k)
-if k.KeyCode == Enum.KeyCode.Return then
+TextBox.InputBegan:Connect(function(key)
+if key.KeyCode == Enum.KeyCode.Return then
 sendbypassedchatmessage(TextBox.Text)
 end
 end)
