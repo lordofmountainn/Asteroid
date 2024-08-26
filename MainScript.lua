@@ -92,8 +92,8 @@ ImageButton.MouseButton1Down:Connect(function()
 sendbypassedchatmessage(TextBox.Text)
 end)
 
-TextBox.InputBegan:Connect(function(key)
-if key.KeyCode == Enum.KeyCode.Return then
+TextBox.InputEnded:Connect(function(k)
+if k.KeyCode == Enum.KeyCode.Return then
 sendbypassedchatmessage(TextBox.Text)
 end
 end)
