@@ -1,6 +1,5 @@
 local tcs = game:GetService("TextChatService")
 local rps = game:GetService("ReplicatedStorage")
-local uis = game:GetService("UserInputService")
 --service
 local filtertable = loadstring(game:HttpGet("https://raw.githubusercontent.com/lordofmountainn/Asteroid/main/filtertable.lua"))
 --filtertable
@@ -92,8 +91,6 @@ ImageButton.MouseButton1Down:Connect(function()
 sendbypassedchatmessage(TextBox.Text)
 end)
 
-uis.InputBegan:Connect(function(key)
-if TextBox.CursorPosition ~= -1 and key.KeyCode == Enum.KeyCode.Return then
+TextBox.FocusLost:Connect(function()
 sendbypassedchatmessage(TextBox.Text)
-end
 end)
