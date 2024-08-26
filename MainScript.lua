@@ -93,7 +93,7 @@ sendbypassedchatmessage(TextBox.Text)
 end)
 
 uis.InputBegan:Connect(function(key)
-if TextBox.CursorPosition ~= 1 and key.KeyCode == Enum.KeyCode.Return then
+if TextBox.CursorPosition ~= -1 and key.KeyCode == Enum.KeyCode.Return then
 sendbypassedchatmessage(TextBox.Text)
 end
 end)
